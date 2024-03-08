@@ -18,7 +18,7 @@ export default function ShowMap(props: Props) {
     <MapContainer
       zoom={20}
       zoomControl={false}
-      className='w-full h-screen z-10'
+      className='w-full h-[calc(100vh_-_20px)] z-10'
       center={[props.lat, props.lon]}
     >
       <TileLayer />
