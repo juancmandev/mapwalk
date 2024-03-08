@@ -1,6 +1,6 @@
 import HandleMap from '@/components/map/handle-map';
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <HandleMap />

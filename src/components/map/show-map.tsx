@@ -2,7 +2,8 @@
 
 import { MapContainer } from 'react-leaflet';
 import TileLayer from '@/components/map/tile-layer';
-import MapUI from './map-ui';
+import MapUI from '@/components/map/map-ui';
+import Zones from '@/components/map/zones';
 
 type Props = {
   lat: number;
@@ -14,11 +15,12 @@ export default function ShowMap(props: Props) {
     <MapContainer
       zoom={20}
       zoomControl={false}
-      className='w-full h-screen'
+      className='w-full h-screen z-10'
       center={[props.lat, props.lon]}
     >
       <TileLayer />
       <MapUI {...props} />
+      <Zones />
     </MapContainer>
   );
 }

@@ -97,3 +97,8 @@
   border: 2px solid black;
   border-radius: calc(var(--radius) - 2px);
 }
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 900;
+}

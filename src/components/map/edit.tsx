@@ -2,16 +2,36 @@
 
 import { FeatureGroup } from 'react-leaflet';
 import { EditControl } from 'react-leaflet-draw';
-import Control from 'react-leaflet-custom-control';
+import ReviewZone from './review-zone';
+import { useEffect, useState } from 'react';
+
+type coords = {
+  lat: number;
+  lng: number;
+};
 
 export default function Edit() {
+  const [open, setOpen] = useState(false);
+  const [polygon, setPolygon] = useState<coords[] | null>(null);
+
+  function handleCreated(e: any) {
+    console.log(e.layer._latlngs);
+
+    setPolygon(e.layer._latlngs[0]);
+    setOpen(true);
+  }
+
+  useEffect(() => {
+    if (!open) setPolygon(null);
+  }, [open]);
+
   return (
-    <Control position='bottomleft'>
+    <>
       <FeatureGroup>
         <EditControl
           position='bottomleft'
           onEdited={(e) => console.log(e)}
-          onCreated={(e) => console.log(e)}
+          onCreated={handleCreated}
           onDeleted={(e) => console.log(e)}
           draw={{
             circlemarker: false,
@@ -22,6 +42,7 @@ export default function Edit() {
           }}
         />
       </FeatureGroup>
-    </Control>
+      <ReviewZone open={open} setOpen={setOpen} polygon={polygon!} />
+    </>
   );
 }

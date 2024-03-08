@@ -39,9 +39,19 @@ export default function HandleMap() {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
+      {loading && (
+        <div className='w-full h-screen grid items-center bg-slate-200 animate-pulse'>
+          <h1 className='text-center text-xl font-semibold'>Loading map...</h1>
+        </div>
+      )}
       {!loading && coords && <ShowMap {...coords} />}
-      {!loading && !coords && <p>Can't access to location</p>}
+      {!loading && !coords && (
+        <div className='w-full h-screen grid items-center bg-slate-200'>
+          <h1 className='text-center text-xl font-semibold'>
+            Can't access to location
+          </h1>
+        </div>
+      )}
     </>
   );
 }
