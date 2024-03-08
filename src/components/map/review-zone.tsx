@@ -27,6 +27,7 @@ const selectData = {
 type Props = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setFetchZones: React.Dispatch<React.SetStateAction<boolean>>;
   polygon:
     | {
         lat: number;
@@ -58,6 +59,11 @@ export default function ReviewZone(props: Props) {
       polygon_geopoints: `POLYGON((${points} ${props.polygon[0].lng} ${props.polygon[0].lat}))`,
       polygon_coords: props.polygon,
     });
+
+    if (!res.error) {
+      props.setFetchZones((prev) => !prev);
+      props.setOpen((prev) => !prev);
+    }
   }
 
   return (

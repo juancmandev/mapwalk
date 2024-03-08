@@ -4,6 +4,7 @@ import { MapContainer } from 'react-leaflet';
 import TileLayer from '@/components/map/tile-layer';
 import MapUI from '@/components/map/map-ui';
 import Zones from '@/components/map/zones';
+import { useState } from 'react';
 
 type Props = {
   lat: number;
@@ -11,6 +12,8 @@ type Props = {
 };
 
 export default function ShowMap(props: Props) {
+  const [fetchZones, setFetchZones] = useState(false);
+
   return (
     <MapContainer
       zoom={20}
@@ -19,8 +22,8 @@ export default function ShowMap(props: Props) {
       center={[props.lat, props.lon]}
     >
       <TileLayer />
-      <MapUI {...props} />
-      <Zones />
+      <MapUI {...props} setFetchZones={setFetchZones} />
+      <Zones fetchZones={fetchZones} />
     </MapContainer>
   );
 }

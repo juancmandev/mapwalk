@@ -16,6 +16,7 @@ const Edit = dynamic(() => import('@/components/map/edit'), {
 type Props = {
   lat: number;
   lon: number;
+  setFetchZones: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function MapUI(props: Props) {
@@ -23,7 +24,7 @@ export default function MapUI(props: Props) {
     <>
       <ZoomControl {...props} />
       <Menu />
-      <Edit />
+      <Edit setFetchZones={props.setFetchZones} />
       <UserMarker {...props} />
     </>
   );

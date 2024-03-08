@@ -4,7 +4,11 @@ import { LatLngExpression } from 'leaflet';
 import { useEffect, useState } from 'react';
 import { Polygon, Tooltip } from 'react-leaflet';
 
-export default function Zones() {
+type Props = {
+  fetchZones: boolean;
+};
+
+export default function Zones(props: Props) {
   const supabase = createBrowserClient();
 
   const [polygons, setPolygons] = useState<
@@ -25,7 +29,7 @@ export default function Zones() {
 
   useEffect(() => {
     fetchPolygons();
-  }, []);
+  }, [props.fetchZones]);
 
   return (
     <>

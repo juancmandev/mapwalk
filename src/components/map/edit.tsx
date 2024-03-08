@@ -1,28 +1,32 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { FeatureGroup } from 'react-leaflet';
 import { EditControl } from 'react-leaflet-draw';
 import ReviewZone from './review-zone';
-import { useEffect, useState } from 'react';
 
 type coords = {
   lat: number;
   lng: number;
 };
 
-export default function Edit() {
+type Props = {
+  setFetchZones: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function Edit(props: Props) {
   const [open, setOpen] = useState(false);
   const [polygon, setPolygon] = useState<coords[] | null>(null);
 
   function handleCreated(e: any) {
-    console.log(e.layer._latlngs);
-
     setPolygon(e.layer._latlngs[0]);
     setOpen(true);
   }
 
   useEffect(() => {
-    if (!open) setPolygon(null);
+    if (!open) {
+      setPolygon(null);
+    }
   }, [open]);
 
   return (
@@ -42,7 +46,12 @@ export default function Edit() {
           }}
         />
       </FeatureGroup>
-      <ReviewZone open={open} setOpen={setOpen} polygon={polygon!} />
+      <ReviewZone
+        open={open}
+        setOpen={setOpen}
+        polygon={polygon!}
+        setFetchZones={props.setFetchZones}
+      />
     </>
   );
 }
