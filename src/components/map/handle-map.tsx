@@ -48,7 +48,7 @@ export default function HandleMap() {
       {!loading && !coords && (
         <div className='w-full h-screen grid items-center bg-slate-200'>
           <h1 className='text-center text-xl font-semibold'>
-            Can't access to location
+            Can not access to location
           </h1>
         </div>
       )}
