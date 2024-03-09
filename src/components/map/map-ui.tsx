@@ -23,7 +23,7 @@ export default function MapUI(props: Props) {
   return (
     <>
       <ZoomControl {...props} />
-      <Menu />
+
       <Edit setFetchZones={props.setFetchZones} />
       <UserMarker {...props} />
     </>

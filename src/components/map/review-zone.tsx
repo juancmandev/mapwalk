@@ -83,14 +83,14 @@ export default function ReviewZone(props: Props) {
             <Button
               onClick={() => setGoodOrBad('good')}
               className='w-full text-lg'
-              variant='outline'
+              variant={goodOrBad === 'good' ? 'default' : 'outline'}
             >
               😄 Good
             </Button>
             <Button
               onClick={() => setGoodOrBad('bad')}
               className='w-full text-lg'
-              variant='outline'
+              variant={goodOrBad === 'bad' ? 'default' : 'outline'}
             >
               🙁 Bad
             </Button>

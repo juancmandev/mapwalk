@@ -79,23 +79,15 @@
 }
 
 .leaflet-draw-toolbar {
-  border-radius: calc(var(--radius) - 2px);
+  display: none;
 }
 
-.leaflet-touch .leaflet-bar a:first-child {
-  border-top-right-radius: calc(var(--radius) - 2px);
-  border-top-left-radius: calc(var(--radius) - 2px);
+.leaflet-draw-actions {
+  display: none !important;
 }
 
-.leaflet-touch .leaflet-bar a:last-child {
-  border-bottom-right-radius: calc(var(--radius) - 2px);
-  border-bottom-left-radius: calc(var(--radius) - 2px);
-}
-
-.leaflet-touch .leaflet-control-layers,
-.leaflet-touch .leaflet-bar {
-  border: 2px solid black;
-  border-radius: calc(var(--radius) - 2px);
+.leaflet-pane .leaflet-popup-pane {
+  display: none !important;
 }
 
 .leaflet-top,

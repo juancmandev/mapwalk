@@ -1,10 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { MapContainer } from 'react-leaflet';
 import TileLayer from '@/components/map/tile-layer';
 import MapUI from '@/components/map/map-ui';
 import Zones from '@/components/map/zones';
-import { useState } from 'react';
 
 type Props = {
   lat: number;
